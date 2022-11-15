@@ -1,0 +1,10 @@
+#N canvas 827 239 527 327 12;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X text 0 0 plugdatainfo <?xml version="1.0" encoding="UTF-8"?> <PlugDataInfo/>
+;
+#X coords 0 1 100 -1 1 1 1;
+#X restore 0 0 graph;
+#X obj 401 257 noinputGUI;
+#X obj 401 1001 dac~;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;

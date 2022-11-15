@@ -1,0 +1,135 @@
+#N canvas -8 -8 1920 992 12;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X text 0 0 plugdatainfo <?xml version="1.0" encoding="UTF-8"?> <PlugDataInfo/>
+;
+#X coords 0 1 100 -1 1 1 1;
+#X restore 0 0 graph;
+#X obj 301 119 *~;
+#X obj 1028 503 hsl 128 17 0 1 0 0 empty empty Input\ Volume -2 -8
+0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 407 292 *~;
+#X obj 1028 577 hsl 128 17 0 1.2 0 0 empty empty Feedback\ Volume -2
+-8 0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 313 363 *~;
+#X obj 1028 613 hsl 128 17 0.01 1 1 0 empty empty Volume -2 -8 0 10
+#e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 1028 539 hsl 128 17 0 1000 0 0 empty empty Delay\ Time -2 -8
+0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 1028 465 nbx 4 21 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 #e4e4e4 #5a5a5a #5a5a5a 0 256 0;
+#X obj 589 119 *~;
+#X obj 1208 503 hsl 128 17 0 1 0 0 empty empty Input\ Volume -2 -8
+0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 695 292 *~;
+#X obj 1208 574 hsl 128 17 0 1.2 0 0 empty empty Feedback\ Volume -2
+-8 0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 611 381 *~;
+#X obj 1208 538 hsl 128 17 0 1000 0 0 empty empty Delay\ Time -2 -8
+0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 1208 465 nbx 4 21 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 #e4e4e4 #5a5a5a #5a5a5a 0 256 0;
+#X obj 301 82 osc~;
+#X obj 589 82 osc~;
+#X obj 1208 609 hsl 128 17 0.01 1 1 0 empty empty Volume -2 -8 0 10
+#e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 340 475 *~;
+#X obj 1208 706 hsl 138 36 0 1 0 0 empty empty Main\ Volume -2 -8 0
+10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 373 178 delwrite~ feedback 1000;
+#X obj 407 255 delread~ feedback 100;
+#X obj 661 178 delwrite~ feedback2 1000;
+#X obj 695 255 delread~ feedback2 100;
+#X obj 917 110 *~;
+#X obj 1393 497 hsl 128 17 0 1 0 0 empty empty Input\ Volume -2 -8
+0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 1035 292 *~;
+#X obj 1393 577 hsl 128 17 0 1.2 0 0 empty empty Feedback\ Volume -2
+-8 0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 951 381 *~;
+#X obj 1393 533 hsl 128 17 0 1000 0 0 empty empty Delay\ Time -2 -8
+0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 1393 612 hsl 128 17 0.01 1 1 0 empty empty Volume -2 -8 0 10
+#e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 917 73 noise~;
+#X obj 1001 178 delwrite~ feedback3 1000;
+#X obj 1035 255 delread~ feedback3 100;
+#X obj 407 561 rev2~;
+#X obj 1402 720 vsl 17 128 0 100 0 0 empty empty empty 0 -9 0 10 #e4e4e4
+#0000ff #5a5a5a 0 1;
+#X obj 1434 720 vsl 17 128 0 100 0 0 empty empty empty 0 -9 0 10 #e4e4e4
+#0000ff #5a5a5a 0 1;
+#X obj 1468 720 vsl 17 128 0 20000 0 0 empty empty empty 0 -9 0 10
+#e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 1500 720 vsl 17 128 0 100 0 0 empty empty empty 0 -9 0 10 #e4e4e4
+#0000ff #5a5a5a 0 1;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array Output 2000 float 0 black black;
+#X coords 0 1 1999 -1 606 183 1;
+#X restore 960 909 graph;
+#X obj 468 642 tabwrite~ Output;
+#X obj 539 618 metro 50;
+#X obj 539 586 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4
+#828282 #5a5a5a;
+#X obj 407 391 *~;
+#X obj 1208 653 hsl 137 34 0.01 1 1 0 empty empty Overall\ Volume -2
+-8 0 10 #e4e4e4 #0000ff #5a5a5a 0 1;
+#X obj 407 421 *~ 0.1;
+#X obj 565 586 loadbang;
+#X obj 979 668 limiter;
+#X text 1410 690 Reverb controls;
+#X obj 450 840 outlet~;
+#X obj 472 774 clip~ -1 1;
+#X connect 1 0 5 0;
+#X connect 1 0 21 0;
+#X connect 2 0 1 1;
+#X connect 3 0 21 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 1;
+#X connect 5 0 44 0;
+#X connect 6 0 5 1;
+#X connect 7 0 22 0;
+#X connect 8 0 16 0;
+#X connect 9 0 13 0;
+#X connect 9 0 23 0;
+#X connect 10 0 9 1;
+#X connect 11 0 23 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 1;
+#X connect 13 0 44 0;
+#X connect 14 0 24 0;
+#X connect 15 0 17 0;
+#X connect 16 0 1 0;
+#X connect 17 0 9 0;
+#X connect 18 0 13 1;
+#X connect 19 0 35 0;
+#X connect 19 0 41 0;
+#X connect 19 0 51 0;
+#X connect 20 0 19 1;
+#X connect 22 0 3 0;
+#X connect 24 0 11 0;
+#X connect 25 0 29 0;
+#X connect 25 0 33 0;
+#X connect 26 0 25 1;
+#X connect 27 0 29 0;
+#X connect 27 0 33 0;
+#X connect 28 0 27 1;
+#X connect 29 0 44 0;
+#X connect 30 0 34 0;
+#X connect 31 0 29 1;
+#X connect 32 0 25 0;
+#X connect 34 0 27 0;
+#X connect 35 2 51 0;
+#X connect 35 3 51 0;
+#X connect 36 0 35 1;
+#X connect 37 0 35 2;
+#X connect 38 0 35 3;
+#X connect 39 0 35 4;
+#X connect 42 0 41 0;
+#X connect 43 0 42 0;
+#X connect 44 0 46 0;
+#X connect 45 0 44 1;
+#X connect 46 0 48 0;
+#X connect 47 0 43 0;
+#X connect 48 0 19 0;
+#X connect 51 0 50 0;
+#X coords 0 0 1 1 656 714 1 930 416;
